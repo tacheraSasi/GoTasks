@@ -3,7 +3,7 @@
    ==================== GoTask App =====================
    =====================================================
 
-   GoTask is a simple and fun todo application built using Go and the Fyne GUI framework. 
+   GoTask is a simple and fun todo application built using Go and the Fyne GUI framework.
    Created by **Tachera Sasi**, this app helps users manage their tasks effortlessly.
 
    Key Features:
@@ -28,14 +28,16 @@ package main
 
 import (
 	"database/sql"
+	"log"
+	"os"
+	"strconv"
+
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
 	_ "github.com/mattn/go-sqlite3"
-	"log"
-	"strconv"
 )
 
 // Task structure to store task data
@@ -48,6 +50,20 @@ type Task struct {
 
 func main() {
 	myApp := app.New()
+
+	
+	// Load your icon as a byte slice
+	iconData, err := os.ReadFile("assets/icon.png") // Path to your icon file
+	if err != nil {
+		log.Fatal("Failed to load icon:", err) // Handle error appropriately
+	}
+
+	// Create a static resource for the icon
+	iconResource := fyne.NewStaticResource("icon.png", iconData)
+
+	// Set the icon for the application
+	myApp.SetIcon(iconResource)
+
 	myWindow := myApp.NewWindow("GoTask")
 
 	// db connection
