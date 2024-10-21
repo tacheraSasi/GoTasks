@@ -1,4 +1,3 @@
-```markdown
 # GoTasks - A Simple To-Do List Application
 
 GoTasks is a simple to-do list application built with Go and the Fyne UI toolkit. This application allows users to add, delete, and manage tasks with priority levels, all while storing data in a SQLite database.
