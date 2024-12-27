@@ -147,7 +147,7 @@ func main() {
 
 	content := container.NewBorder(topBar, nil, nil, nil, taskListView)
 	myWindow.SetContent(content)
-	myWindow.Resize(fyne.NewSize(700, 600))
+	myWindow.Resize(fyne.NewSize(700, 500))
 	myWindow.CenterOnScreen()
 
 	myWindow.ShowAndRun()
